@@ -29,7 +29,8 @@ namespace SuperStore.DAL
                 new Employee {FirstName="Sean", LastName="Thompson" },
                 new Employee {FirstName="James", LastName="Lucena" }
             };
-
+            employee.ForEach(s => context.Employee.Add(s));
+            context.SaveChanges();
             var product = new List<Product>
             {
                 new Product {Name="iPhone 6", ProductID=3495829, ProductPrice=600  },
@@ -39,6 +40,8 @@ namespace SuperStore.DAL
 
 
             };
+            product.ForEach(s => context.Products.Add(s));
+            context.SaveChanges();
         }
     }
 }
